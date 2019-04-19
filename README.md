@@ -91,7 +91,7 @@ github_username: yusq77 # modify this account to yours
 weibo_username: huxpro # the footer woule be auto-updated.
 
 # Build settings
-# paginate: 10  # nums of posts in one page
+# paginate: 5 # nums of posts in one page
 ```
 
 There are more options you can check out in the [Jekyll - Official Site](http://jekyllrb.com/), or you can directly dive into code to find more.
