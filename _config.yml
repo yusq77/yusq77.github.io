@@ -59,10 +59,19 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: hux
+disqus_username: yusq77
 
 # Netease settings
 netease_comment: false
+
+# 添加这个就行,上面的只是为了你能方便找到地方
+gitalk:
+    enable: true
+    owner: yusq77
+    repo: https://github.com/yusq77/yusq77.github.io
+    clientID: 92a09ef47a4b7ddfb2a7
+    clientSecret: cd0d6a04e0424442b384808540b9b15ea119d360
+    admin: yusq77
 
 
 

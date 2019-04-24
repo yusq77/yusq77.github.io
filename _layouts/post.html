@@ -123,6 +123,25 @@ layout: default
 
 
 {% if site.disqus_username %}
+
+<!-- 在jekyll博客调用gitment -->
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+        owner: 'yusq77.github.io',
+            repo: 'https://github.com/yusq77/yusq77.github.io',
+                oauth: {
+                            client_id: '92a09ef47a4b7ddfb2a7',
+                                    client_secret: 'cd0d6a04e0424442b384808540b9b15ea119d360',
+                                        },
+});
+gitment.render('gitmentContainer');
+</script>
+
+
+
 <!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
