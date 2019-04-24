@@ -105,7 +105,12 @@ friends: [
     {
         title: "Hux's Blog",
         href: "https://huangxuan.me/"
+    },
+    {
+        title: "逆袭之路666"
+        href: "https://www.cnblogs.com/liudw-0215/"
     }
+
     #     title: "Su",
     #     href: "http://su.gallery/"
     # },{
