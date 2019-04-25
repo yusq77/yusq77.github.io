@@ -8,39 +8,14 @@ layout: default
 
 <!-- Post Header -->
 
+{% include intro-header.html type='post' %}
+
 <!-- 添加 gitalk 评论系统 -->
-<link rel="stylesheet" href="../css/gitalk.css">
-    <script src="../js/gitalk.min.js"></script>
+<link rel="stylesheet" href="../../css/gitalk.css">
+    <script src="../../js/gitalk.min.js"></script>
 
 <!--    打赏-->
-<link href="/css/reward.css?v=6.2.0" rel="stylesheet" type="text/css" />
-
-
-{% include intro-header.html type='post' %}
-<header class="intro-header" >
-    <div class="header-mask"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        {% for tag in page.tags %}
-                        <a class="tag" href="{{ site.baseurl }}/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
-                        {% endfor %}
-                    </div>
-                    <h1>{{ page.title }}</h1>
-                    {% comment %}
-                        always create a h2 for keeping the margin , Yizibi
-                    {% endcomment %}
-                    {% comment %} if page.subtitle {% endcomment %}
-                    <h2 class="subheading">{{ page.subtitle }}</h2>
-                    {% comment %} endif {% endcomment %}
-                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+<link href="../css/reward.css?v=6.2.0" rel="stylesheet" type="text/css" />
 
 <!-- Post Content -->
 <article>
