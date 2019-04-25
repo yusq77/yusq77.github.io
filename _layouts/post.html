@@ -7,9 +7,36 @@ layout: default
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
 <!-- Post Header -->
-
+<!--//添加评论系统-->
+<link rel="stylesheet" href="../../../../css/gitalk.css">
+    <script src="../../../../js/gitalk.min.js"></script>
 
 {% include intro-header.html type='post' %}
+<!-- add by yusq -- >
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        {% for tag in page.tags %}
+                        <a class="tag" href="{{ site.baseurl }}/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                    <h1>{{ page.title }}</h1>
+                    {% comment %}
+                        always create a h2 for keeping the margin , Yizibi
+                    {% endcomment %}
+                    {% comment %} if page.subtitle {% endcomment %}
+                    <h2 class="subheading">{{ page.subtitle }}</h2>
+                    {% comment %} endif {% endcomment %}
+                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
 <!-- Post Content -->
 <article>
@@ -66,6 +93,13 @@ layout: default
                 <!-- 网易云跟帖 评论框 start -->
                 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
                 <!-- 网易云跟帖 评论框 end -->
+                {% endif %}
+
+                <!--   gitalk 评论框       -->
+                {% if site.gitalk %}
+                <div class="comment">
+                    {% include comments.html %}
+                </div>
                 {% endif %}
             </div>  
 
@@ -125,48 +159,6 @@ layout: default
 
 
 {% if site.disqus_username %}
-
-<!-- 在jekyll博客调用gittalk -->
-<! --
-<div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
--->
-
-<!--   gitalk       -->
-<!--//添加评论系统-->
-<link rel="stylesheet" href="../../../../css/gitalk.css">
-<script src="../../../../js/gitalk.min.js"></script>
-
-{% if site.gitalk %}
-<div class="comment">
-    {% include comments.html %}
-</div>
-{% endif %}
-
-
-gitalk.render('gitalk-container')
-
-<!-- 在jekyll博客调用gitcomment-->
-<!--
-<div id="gitmentContainer"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-        owner: 'yusq77',
-            repo: 'yusq77.github.io',
-                oauth: {
-                            client_id: '92a09ef47a4b7ddfb2a7',
-                                    client_secret: 'cd0d6a04e0424442b384808540b9b15ea119d360',
-                                        },
-});
-gitment.render('gitmentContainer');
-</script>
--->
-
-
-
 <!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
