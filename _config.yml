@@ -60,7 +60,7 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: yusq77
+#disqus_username: yusq77
 
 # Netease settings
 netease_comment: false
