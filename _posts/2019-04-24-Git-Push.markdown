@@ -31,7 +31,7 @@ https://{username}:{password}@github.com
 
 ## 1.2 添加Git Config 内容
 
-终端下，执行如下命令：
+终端下，进入属于你的分支,执行如下命令：
 
 > git config --global credential.helper store
 
