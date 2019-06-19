@@ -4,7 +4,7 @@ title:      "曳步舞"
 subtitle:   " 曳步舞技巧 "
 date:       2019-06-16 17:30:00
 author:     "Yusq"
-header-img: "img/post-bg-2019-04-24.jpg"
+header-img: "http://www.bioinfo-scrounger.com/wp-content/themes/tannistha/images/blog-banner.jpg"
 catalog: true
 tags:
     - Dancing

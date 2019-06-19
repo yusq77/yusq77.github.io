@@ -81,8 +81,8 @@ gitalk:
 # ba_track_id: [your track id]
 
 # Google Analytics
-ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+# ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
+# ga_domain: huangxuan.me
 
 
 
@@ -115,11 +115,17 @@ friends: [
     {
         title: "Hux",
         href: "https://huangxuan.me/"
-    },{
+    },
+    {
         title: "逆袭之路666",
         href: "https://www.cnblogs.com/liudw-0215/"
-    },{
+    },
+    {
         title: "动态规划",
         href: "https://www.youtube.com/watch?v=Jakbj4vaIbE"
+    },
+    {
+        title: "生信笔记",
+        href: "http://www.bioinfo-scrounger.com/"
     }
 ]
