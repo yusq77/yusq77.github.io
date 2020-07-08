@@ -1,0 +1,100 @@
+---
+layout:     post
+title:      "Opencv 图像处理 Photoshop"
+subtitle:   " \"色彩平衡（偏色校正）\""
+date:       2020-06-21 10:00:00
+author:     "Yusq"
+header-img: "img/post-bg-2020-06-21-river.jpg"
+catalog: true
+tags:
+    - Qt
+    - Opencv 图像处理 photoshop
+---
+
+
+## 前言
+> 通过对图像的色彩平衡处理，可以校正图像色偏，过饱和或饱和度不足的情况，
+> 也可以根据自己的喜好和制作需要，调制需要的色彩，更好的完成画面效果，
+> 广泛应用于皮肤分析、白平衡处理中。
+
+---
+
+## 实现原理
+根据用户指定的R、G、B三个色彩的调整分量，分别附加到对应的色彩分量上，
+从而改变原始图像的色彩。
+
+## 实现源码
+``` C++
+/**
+ * @brief CheckRGBValue
+ * 验证参数RGB范围
+ *
+ * @param cR  RGB色彩中R的增量，范围为[-255, 255]
+ * @param cG  RGB色彩中G的增量，范围为[-255, 255]
+ * @param cB  RGB色彩中B的增量，范围为[-255, 255]
+ */
+void PhotoShop:: CheckRGBValue(int cR, int cG, int cB)
+{
+    if ( cR<-255 )
+        cR = -255;
+
+    if ( cG<-255 )
+        cG = -255;
+
+    if ( cB<-255 )
+        cB = -255;
+
+    if ( cR>255)
+        cR = 255;
+
+    if ( cG>255)
+        cG = 255;
+
+    if ( cB>255)
+        cB = 255;
+}
+
+/**
+ * @brief ColorBalance
+ * 色彩平衡
+ *
+ * @param src 需要处理的原图像
+ * @param dst 彩色平衡后的返回图像
+ * @param cR  RGB色彩中R的增量，范围为[-255, 255]
+ * @param cG  RGB色彩中G的增量，范围为[-255, 255]
+ * @param cB  RGB色彩中B的增量，范围为[-255, 255]
+ */
+void PhotoShop:: ColorBalance(Mat& src, Mat& dst, int cR, int cG, int cB)
+{
+    if (dst.empty())
+        dst.create(src.rows, src.cols, src.type());
+
+    dst = cv::Scalar::all(0);
+
+    int i=0, j=0;
+    Size size = src.size();
+    int chns = src.channels();
+
+    if (src.isContinuous() && dst.isContinuous())
+    {
+        size.width *= size.height;
+        size.height = 1;
+    }
+
+    CheckRGBValue(cR, cG, cB);
+
+    for (i= 0; i<size.height; ++i)
+    {
+        const unsigned char* src = (const unsigned char*)(src.data+ src.step*i);
+        unsigned char* dst = (unsigned char*)dst.data+dst.step*i;
+        for (j=0; j<size.width; ++j)
+        {
+            dst[j*chns] = saturate_cast<uchar>(src[j*chns] +cR);
+            dst[j*chns+1] = saturate_cast<uchar>(src[j*chns+1] +cG);
+            dst[j*chns+2] = saturate_cast<uchar>(src[j*chns+2] +cB);
+        }
+    }
+}
+```
+
+## 效果测试
